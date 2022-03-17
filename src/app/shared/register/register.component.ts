@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AutheService} from '../../service/authe.service';
+import {single} from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,7 @@ export class RegisterComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  check: false;
 
   constructor(private authService: AutheService) { }
 
@@ -31,5 +33,6 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
+
 
 }

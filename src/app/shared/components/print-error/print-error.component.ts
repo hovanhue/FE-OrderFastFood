@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-print-error',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./print-error.component.css']
 })
 export class PrintErrorComponent implements OnInit {
+
+  @Input('control') control: any;
 
   constructor() { }
 

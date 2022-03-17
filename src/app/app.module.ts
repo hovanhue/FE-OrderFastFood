@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {SharedModule} from './shared/shared.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CommonModule} from '@angular/common';
+import {AdminModule} from './admin/admin.module';
+import {GuestModule} from './guest/guest.module';
 
 @NgModule({
   declarations: [
@@ -11,6 +15,10 @@ import {SharedModule} from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    GuestModule,
+    AdminModule,
     SharedModule,
     AppRoutingModule,
   ],

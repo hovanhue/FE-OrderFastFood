@@ -14,22 +14,37 @@ import { ProductsComponent } from './components/products/products.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RateComponent } from './components/rate/rate.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgbPaginationModule, NgbRatingModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatListModule} from '@angular/material/list';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {FormDirective} from '../admin/directive/form.directive';
+import {MatOptionModule} from '@angular/material/core';
+import { VerificationComponent } from './components/verification/verification.component';
+import { VerifiResetPasswordComponent } from './components/verifi-reset-password/verifi-reset-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
 
 @NgModule({
   declarations: [
-  CartComponent,
-  HeaderComponent,
-  HomeComponent,
-  BoardUserComponent,
-  ItemDetailComponent,
-  OrderDetailComponent,
-  OrderHistoryComponent,
-  ProductsComponent,
-  ProfileComponent,
-  RateComponent,
-  UserProfileComponent],
+    CartComponent,
+    HeaderComponent,
+    HomeComponent,
+    BoardUserComponent,
+    ItemDetailComponent,
+    OrderDetailComponent,
+    OrderHistoryComponent,
+    ProductsComponent,
+    ProfileComponent,
+    RateComponent,
+    UserProfileComponent,
+    FormDirective,
+    VerificationComponent,
+    VerifiResetPasswordComponent,
+    ResetPasswordComponent,
+  ],
   imports: [
     CommonModule,
     ToastrModule.forRoot({
@@ -41,7 +56,16 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
       // newestOnTop: false,
     }),
     SharedModule,
-    GuestRoutingModule
+    GuestRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgbRatingModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NgbTooltipModule,
+    NgbPaginationModule,
+    MatOptionModule
   ]
 })
 export class GuestModule { }
