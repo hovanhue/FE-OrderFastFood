@@ -180,6 +180,7 @@ export class CartComponent implements OnInit {
     if (this.CheckoutFormGroup.invalid) {
 
       this.CheckoutFormGroup.markAllAsTouched();
+      this.ngOnInit();
 
       return;
     }

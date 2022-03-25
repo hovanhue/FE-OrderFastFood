@@ -12,6 +12,7 @@ import {CommonModule} from '@angular/common';
 import {ResetPasswordComponent} from './components/reset-password/reset-password.component';
 import {VerificationComponent} from './components/verification/verification.component';
 import {VerifiResetPasswordComponent} from './components/verifi-reset-password/verifi-reset-password.component';
+import {RateComponent} from './components/rate/rate.component';
 
 
 const routes: Routes = [

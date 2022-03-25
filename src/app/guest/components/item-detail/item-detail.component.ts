@@ -8,8 +8,9 @@ import {ProductService} from '../../../service/product.service';
 import {TokenStorageService} from '../../../service/token-storage.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ToastrService} from 'ngx-toastr';
-import {ProductCategoryService} from '../../../service/product-category.service';
 import {CartService} from '../../../service/cart.service';
+import {RateService} from '../../../service/rate.service';
+import {User} from '../../../models/entity/user';
 
 @Component({
   selector: 'app-item-detail',
@@ -25,6 +26,9 @@ export class ItemDetailComponent implements OnInit {
   currentRate = 0;
   rate = 0;
   rateLength = 0;
+  userId: number;
+  user: User;
+  content: string;
 
   isLoading = true;
   product: Product;
@@ -40,7 +44,7 @@ export class ItemDetailComponent implements OnInit {
               public dialog: MatDialog,
               private toastr: ToastrService,
               private cartService: CartService,
-              private productCategoryService: ProductCategoryService) {}
+              private rateService: RateService) {}
 
   ngOnInit(): void {
     this.routeActive.paramMap.subscribe(() => {
@@ -48,7 +52,6 @@ export class ItemDetailComponent implements OnInit {
     });
 
   }
-
 
   getProduct(){
     this.productId = +this.routeActive.snapshot.paramMap.get('id');
@@ -67,7 +70,7 @@ export class ItemDetailComponent implements OnInit {
       let rate = 0;
       let rateLength = 0;
       for (const tempRate of this.product.rates) {
-        if(tempRate.start !== 0){
+        if (tempRate.start !== 0){
           rate += tempRate.start;
           rateLength += 1;
         }
@@ -76,6 +79,7 @@ export class ItemDetailComponent implements OnInit {
       this.rateLength = rateLength;
       this.rates = this.product.rates;
       this.rateLength = this.products.length;
+      console.log('hii');
       console.log(this.rateLength);
     }else{
       this.rate = 0;
@@ -96,12 +100,13 @@ export class ItemDetailComponent implements OnInit {
         const cart = new Cart();
         cart.id = this.cart.id;
         this.cartDetail = new CartDetail(1, product, cart);
-        this.cartService.saveCartDetail(this.cartDetail).subscribe(data => {
+        this.cartService.saveCartDetail(this.cartDetail).subscribe(next => {
           this.toastr.success('Thêm vào giỏ hàng thành công!', 'Hệ thống!');
           this.cartService.getCartDetailByCartId(this.cart.id).subscribe(data => {
-            console.log(data);
             data.forEach(item => {
               this.totalItems += item.quantity;
+              // console.log(this.totalItems);
+              // this.cartService.updateCartDetail(new CartDetail(  , product, cart)).subscribe();
             });
             this.cartService.setData(this.totalItems);
             this.totalItems = 0;
@@ -116,6 +121,24 @@ export class ItemDetailComponent implements OnInit {
       this.router.navigateByUrl('login');
     }
 
+  }
+
+  checkLogin(){
+    this.user = this.tokenStorageService.getUser();
+    if (this.user != null) {
+      this.userId = this.user.id;
+    }else{
+      this.router.navigate(['/login']);
+    }
+  }
+
+  addRates(userId, productId){
+    this.checkLogin();
+    console.log(userId + ' ' + productId + ' ' + this.content + ' ' + this.rate);
+    const rate = new Rate( this.rate, this.content, productId, userId);
+    this.rateService.saveRate(rate).subscribe(data => {
+      this.toastr.success('Đánh giá sản phẩm thành công!', 'Hệ thống!');
+    });
   }
 
 }

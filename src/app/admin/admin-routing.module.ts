@@ -17,10 +17,11 @@ import {JWT_OPTIONS, JwtHelperService} from '@auth0/angular-jwt';
 const routes: Routes = [
   {
     path: 'admin', component: DashboardComponent,
-    // canActivate: [AuthGuardService],
-    // data: { expectedRole: Role.Admin},
+    canActivate: [AuthGuardService],
+    data: { expectedRole: Role.Admin},
     children: [
       {path: 'home', component: HomeComponent},
+      {path: 'profile', component: UserProfileComponent},
       {path: 'products', children : [
           {path: '', component: AdminProductListComponent},
           {path: 'create', component: AdminProductAddComponent},
@@ -40,8 +41,7 @@ const routes: Routes = [
       },
       {
         path: 'order', children : [
-          {path: '', component: OrderListComponent},
-          {path: 'profile', component: UserProfileComponent}
+          {path: '', component: OrderListComponent}
         ]
       },
     ]

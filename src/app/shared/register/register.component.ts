@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AutheService} from '../../service/authe.service';
 import {single} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
   errorMessage = '';
   check: false;
 
-  constructor(private authService: AutheService) { }
+  constructor(private authService: AutheService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +34,7 @@ export class RegisterComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     );
+    // this.router.navigate(['/login']);
   }
 
 

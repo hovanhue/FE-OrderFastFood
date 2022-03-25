@@ -25,7 +25,7 @@ export class CateFormComponent implements OnInit {
   addProductCategoryFormGroup: FormGroup;
   submitted = false;
 
-  mode: number;
+  mode = 1;
 
   constructor(private route: Router,
               private productCategoryService: ProductCategoryService,

@@ -37,7 +37,7 @@ export class VerifiResetPasswordComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
       // tslint:disable-next-line:max-line-length
-      newPassword: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,32}$')]],
+      newPassword: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&.]{8,32}$')]],
       confirmPassword: ['', [Validators.required, compareValidator('newPassword')]],
     });
     this.route.queryParams.subscribe(params => {

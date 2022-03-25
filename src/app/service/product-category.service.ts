@@ -37,10 +37,10 @@ export class ProductCategoryService {
     return this.http.post<ProductCategory>(this.categoryUrl, product).pipe(catchError(this.handleError));
   }
 
-  // updateProduct(product: Product, id: number): Observable<any>{
-  //   let url = `${this.productUrl}/${id}`;
-  //   return this.httpClient.put<Product>(url, product).pipe(catchError(this.handleError));
-  // }
+  updateProduct(product: ProductCategory, id: number): Observable<any>{
+    const url = `${this.categoryUrl}/${id}`;
+    return this.http.put<ProductCategory>(url, product).pipe(catchError(this.handleError));
+  }
 
 
   deleteProduct(id: number){

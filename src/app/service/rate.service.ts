@@ -13,7 +13,6 @@ export class RateService {
 
   constructor(private httpClient: HttpClient) { }
 
-
   saveRate(rate: Rate): Observable<any>{
     return this.httpClient.post<Rate>(this.rateUrl, rate).pipe(catchError(this.handleError));
   }

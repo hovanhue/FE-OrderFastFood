@@ -24,6 +24,7 @@ import {MatOptionModule} from '@angular/material/core';
 import { VerificationComponent } from './components/verification/verification.component';
 import { VerifiResetPasswordComponent } from './components/verifi-reset-password/verifi-reset-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -45,27 +46,28 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     VerifiResetPasswordComponent,
     ResetPasswordComponent,
   ],
-  imports: [
-    CommonModule,
-    ToastrModule.forRoot({
-      timeOut: 2500,
-      // progressBar: true,
-      progressAnimation: 'increasing',
-      // preventDuplicates: true,
-      closeButton: true,
-      // newestOnTop: false,
-    }),
-    SharedModule,
-    GuestRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    NgbRatingModule,
-    MatListModule,
-    MatFormFieldModule,
-    MatInputModule,
-    NgbTooltipModule,
-    NgbPaginationModule,
-    MatOptionModule
-  ]
+    imports: [
+        CommonModule,
+        ToastrModule.forRoot({
+            timeOut: 2500,
+            // progressBar: true,
+            progressAnimation: 'increasing',
+            // preventDuplicates: true,
+            closeButton: true,
+            // newestOnTop: false,
+        }),
+        SharedModule,
+        GuestRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        NgbRatingModule,
+        MatListModule,
+        MatFormFieldModule,
+        MatInputModule,
+        NgbTooltipModule,
+        NgbPaginationModule,
+        MatOptionModule,
+        MatButtonModule
+    ]
 })
 export class GuestModule { }

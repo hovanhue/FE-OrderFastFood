@@ -42,10 +42,8 @@ export class OrderListComponent implements OnInit {
 
   checkLogin(){
     this.user = this.tokenStorageService.getUser();
-
     if (this.user != null) {
       this.getOrder();
-
     }else{
       this.router.navigate(['/login']);
     }
@@ -54,7 +52,6 @@ export class OrderListComponent implements OnInit {
   getOrder(){
     this.orderService.getAllOrder(0, 20).subscribe(data => {
       this.orders = data.content;
-      console.log(123);
       console.log(this.order);
     }, error => {
       this.toastr.error('Lỗi! ' + error.status, 'Hệ thống');

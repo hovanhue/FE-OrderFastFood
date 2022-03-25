@@ -6,7 +6,6 @@ import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {TokenStorageService} from '../../../service/token-storage.service';
 import {OrderService} from '../../../service/order.service';
-import {CartService} from '../../../service/cart.service';
 
 @Component({
   selector: 'app-order-history',
@@ -21,9 +20,8 @@ export class OrderHistoryComponent implements OnInit {
 
   constructor(private router: Router,
               private tokenStorageService: TokenStorageService,
-              private orderService: OrderService
-    ,         private toastr: ToastrService,
-              private cartService: CartService) { }
+              private orderService: OrderService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.checkLogin();
@@ -33,7 +31,6 @@ export class OrderHistoryComponent implements OnInit {
     this.user = this.tokenStorageService.getUser();
     if (this.user != null) {
       this.getOrder();
-
     }else{
       this.router.navigate(['/login']);
     }
@@ -62,7 +59,7 @@ export class OrderHistoryComponent implements OnInit {
           this.order = data;
           this.order.status = 0;
           console.log('ádasdasd', this.order);
-          this.orderService.updateOrder(this.order).subscribe(data => {
+          this.orderService.updateOrder(this.order).subscribe(next => {
               this.toastr.success('Huỷ thành công !', 'Hệ thống');
               this.ngOnInit();
             }, error => {

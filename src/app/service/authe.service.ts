@@ -45,13 +45,13 @@ export class AutheService {
   }
 
   verifyPassword(code: string): Observable<any> {
-    return this.http.post(AUTH_API + 'verify-reset-password', {
+    return this.http.post(AUTH_API + 'verify-password', {
       code
     }, httpOptions);
   }
 
   resetPassword(username: string): Observable<any> {
-    return this.http.post(AUTH_API + 'verify-password', {
+    return this.http.post(AUTH_API + 'reset-password', {
       username,
     }, httpOptions);
   }

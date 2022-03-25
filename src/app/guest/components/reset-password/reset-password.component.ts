@@ -19,8 +19,7 @@ export class ResetPasswordComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private authService: AutheService,
-              private toastr: ToastrService,
-              private router: Router) { }
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
@@ -30,6 +29,7 @@ export class ResetPasswordComponent implements OnInit {
 
   onSubmit(){
     this.isSubmitted = true;
+    console.log(this.formGroup);
     this.authService.resetPassword(this.formGroup.value.username).subscribe(
       data => {
         this.toastr.success('Email đã được gửi!', 'Thông báo', {

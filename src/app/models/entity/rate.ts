@@ -6,16 +6,25 @@ export class Rate {
   start: number;
   comment: string;
   dateRate: Date;
-  product: Product;
+  // product: Product;
   productId: number;
-  user: User;
+  // user: User;
+  userId: number;
 
 
-  constructor(id: number, start: number, comment: string, productId: number, user: User) {
-    this.id = id;
+  // constructor(start: number, comment: string, productId: number, user: User) {
+  //   this.start = start;
+  //   this.comment = comment;
+  //   this.productId = productId;
+  //   this.user = user;
+  // }
+
+  constructor(start: number, comment: string, productId: number, userId: number) {
     this.start = start;
     this.comment = comment;
+    // this.product = productId;
     this.productId = productId;
-    this.user = user;
+    this.userId = userId;
+    // this.user = userId;
   }
 }

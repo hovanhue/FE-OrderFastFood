@@ -108,6 +108,7 @@ export class CateListComponent implements OnInit {
               console.log(data);
               this.productCategoryService.deleteProduct(value).subscribe(
                 data => {
+                  // this.openDialog('Bạn có chắc xoá thể loại này không?', 'Yes', 'No', value);
                   this.openDialogBack('Deleted successfully', 'Back to list');
                 }, (error) => {
                   console.log(error);
@@ -167,5 +168,21 @@ export class CateListComponent implements OnInit {
     });
   }
 
+  detail(id: number) {
+
+  }
+
+  update(id: number) {
+    this.productCategoryService.getProductCategoryById(id).subscribe((data) => {
+      console.log(data);
+      this.router.navigateByUrl(`admin/product-category/update/${id}`);
+      // this.productCategoryService.updateProduct(data, id).subscribe(next => {
+      //   this.openDialogBack('Chỉnh sửa thành công!', 'Ok');
+      // }, error => {
+      //   this.openDialogError('Lỗi, Không tìm thấy.', 'Quay lại danh sách', 'Huỷ');
+      // });
+
+    });
+  }
 }
 
