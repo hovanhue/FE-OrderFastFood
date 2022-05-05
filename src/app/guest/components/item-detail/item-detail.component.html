@@ -41,18 +41,17 @@
         <i class="text-center">Sản phẩm này chưa có đánh giá nào!</i>
       </div>
       <div class="row border rounded p-3" style="display: flex; justify-content: center; align-items: center">
-        <div class="col-10">
-          <textarea name="rate" id="rate" cols="30" rows="5" style="width: 100%" [(ngModel)]="content"></textarea>
-        </div>
-        <div class="col-2">
-          <button style="height: fit-content" class="btn btn-info" (click)="addRates(userId, productId)">Gửi đánh giá</button>
-        </div>
-          <div class="col-12">
-            <span>Đánh giá:</span>
-
+<!--        <div class="col-10">-->
+<!--          <textarea name="rate" id="rate" cols="30" rows="5" style="width: 100%" [(ngModel)]="content"></textarea>-->
+<!--        </div>-->
+<!--        <div class="col-2">-->
+<!--          <button style="height: fit-content" class="btn btn-info" (click)="addRates(userId, productId)">Gửi đánh giá</button>-->
+<!--        </div>-->
+<!--          <div class="col-12">-->
+<!--            <span>Đánh giá:</span>-->
 <!--            <ngb-rating class="ms-2" [rate]="star" [starTemplate]="t" [readonly]="false" [max]="5"></ngb-rating>-->
 <!--            <ngb-rating class="mb-2" [rate]="getStar()" [starTemplate]="t" [readonly]="false" title="{{getStar()}} sao" [max]="5"></ngb-rating>-->
-        </div>
+<!--        </div>-->
 
       </div>
       <div class="border rounded" *ngIf="rateLength !== 0">

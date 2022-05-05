@@ -17,8 +17,8 @@ import {JWT_OPTIONS, JwtHelperService} from '@auth0/angular-jwt';
 const routes: Routes = [
   {
     path: 'admin', component: DashboardComponent,
-    canActivate: [AuthGuardService],
-    data: { expectedRole: Role.Admin},
+    // canActivate: [AuthGuardService],
+    // data: { expectedRole: Role.Admin},
     children: [
       {path: 'home', component: HomeComponent},
       {path: 'profile', component: UserProfileComponent},

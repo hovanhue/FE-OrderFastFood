@@ -52,7 +52,8 @@
             <div class="row mb-3">
               <div class="col-md-6">
                 <label for="name" class="fs-6 mb-2">Tên người nhận hàng</label>
-                <input id="name" #myinputFirst (keydown.shift.tab)="onShiftKey($event)" (keyup) = "enableSubmited()" formControlName="name" class="form-control p-2" type="text" placeholder="" />
+                <input id="name" #myinputFirst (keydown.shift.tab)="onShiftKey($event)" (keyup) = "enableSubmited()"
+                       formControlName="name" class="form-control p-2" type="text" placeholder="" />
                 <div *ngIf="submitted">
                   <app-print-error [control]="name"></app-print-error>
                 </div>
